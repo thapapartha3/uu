@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hey You ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #667eea, #764ba2); /* Calm blue first */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            height: 100vh;
+            overflow: hidden;
+            color: white;
+            transition: background 1s ease;
+        }
+
+        .container {
+            margin-top: 15%;
+        }
+
+        h1 {
+            font-size: 35px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.3s;
+        }
+
+        .btn {
+            background-color: white;
+            color: #333;
+        }
+
+        .btn:hover {
+            background-color: #333;
+            color: white;
+        }
+
+        #yesBtn {
+            background-color: white;
+            color: #ff4b7d;
+        }
+
+        #yesBtn:hover {
+            background-color: #ff4b7d;
+            color: white;
+        }
+
+        #noBtn {
+            position: absolute;
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="content">
+        <h1>Hi ❤️</h1>
+        <button class="btn" onclick="nextStep1()">Hello 😊</button>
+    </div>
+
+    <script>
+        function nextStep1() {
+            document.getElementById("content").innerHTML = `
+                <h1>I want to ask you something... 💭</h1>
+                <button class="btn" onclick="nextStep2()">Okay 👀</button>
+            `;
+        }
+
+        function nextStep2() {
+            document.getElementById("content").innerHTML = `
+                <h1>Can I ask you a question? 🥺</h1>
+                <button class="btn" onclick="nextStep3()">Yes, ask ❤️</button>
+            `;
+        }
+
+        function nextStep3() {
+            // Change background to romantic pink
+            document.body.style.background = "linear-gradient(to right, #ff758c, #ff7eb3)";
+
+            document.getElementById("content").innerHTML = `
+                <h1>Do You Love Me? 💖</h1>
+                <button id="yesBtn" onclick="yesClicked()">Yes 💕</button>
+                <button id="noBtn">No 😢</button>
+            `;
+
+            const noBtn = document.getElementById("noBtn");
+
+            noBtn.addEventListener("mouseover", function() {
+                const x = Math.random() * (window.innerWidth - 100);
+                const y = Math.random() * (window.innerHeight - 50);
+                noBtn.style.left = x + "px";
+                noBtn.style.top = y + "px";
+            });
+        }
+
+        function yesClicked() {
+            document.body.innerHTML = `
+                <div style="margin-top:20%; text-align:center; color:white;">
+                    <h1>Yayyyyy!!! 💖💖💖</h1>
+                    <h2>I knew it 😘</h2>
+                    <p>You are mine forever ❤️</p>
+                </div>
+            `;
+        }
+    </script>
+
+</body>
+</html>
